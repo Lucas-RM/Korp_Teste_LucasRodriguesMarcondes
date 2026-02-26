@@ -1,0 +1,99 @@
+{
+  "info": {
+    "name": "Estoque Service",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Coleção de endpoints para o serviço de estoque"
+  },
+  "item": [
+    {
+      "name": "Listar todos os produtos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/produtos",
+          "host": ["{{baseUrl}}"],
+          "path": ["api","v1","produtos"]
+        }
+      }
+    },
+    {
+      "name": "Obter produto por id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/produtos/:id",
+          "host": ["{{baseUrl}}"],
+          "path": ["api","v1","produtos",":id"]
+        }
+      }
+    },
+    {
+      "name": "Criar produto",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"Codigo\": \"12345\",\n  \"Descricao\": \"Produto Exemplo\",\n  \"Saldo\": 100\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/produtos",
+          "host": ["{{baseUrl}}"],
+          "path": ["api","v1","produtos"]
+        }
+      }
+    },
+    {
+      "name": "Verificar existencia de produtos",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"Codigos\": [\"12345\", \"67890\"]\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/produtos/verificar-existencia",
+          "host": ["{{baseUrl}}"],
+          "path": ["api","v1","produtos","verificar-existencia"]
+        }
+      }
+    },
+    {
+      "name": "Baixa de estoque",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"ItensBaixa\": [\n    { \"Codigo\": \"12345\", \"Quantidade\": 2 }\n  ]\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/produtos/baixa-estoque",
+          "host": ["{{baseUrl}}"],
+          "path": ["api","v1","produtos","baixa-estoque"]
+        }
+      }
+    },
+    {
+      "name": "Simular falha para produto",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/produtos/:id/simular-falha",
+          "host": ["{{baseUrl}}"],
+          "path": ["api","v1","produtos",":id","simular-falha"]
+        }
+      }
+    }
+  ]
+}

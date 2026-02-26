@@ -1,0 +1,63 @@
+{
+  "info": {
+    "name": "Faturamento Service",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Coleção de endpoints para o serviço de faturamento"
+  },
+  "item": [
+    {
+      "name": "Listar todas as notas fiscais",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/notas-fiscais",
+          "host": ["{{baseUrl}}"],
+          "path": ["api","v1","notas-fiscais"]
+        }
+      }
+    },
+    {
+      "name": "Obter nota fiscal por id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/notas-fiscais/:id",
+          "host": ["{{baseUrl}}"],
+          "path": ["api","v1","notas-fiscais",":id"]
+        }
+      }
+    },
+    {
+      "name": "Criar nota fiscal",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"Itens\": [\n    { \"Codigo\": \"12345\", \"Quantidade\": 5 }\n  ]\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/notas-fiscais",
+          "host": ["{{baseUrl}}"],
+          "path": ["api","v1","notas-fiscais"]
+        }
+      }
+    },
+    {
+      "name": "Imprimir nota fiscal",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/notas-fiscais/:id/imprimir",
+          "host": ["{{baseUrl}}"],
+          "path": ["api","v1","notas-fiscais",":id","imprimir"]
+        }
+      }
+    }
+  ]
+}
