@@ -1,0 +1,32 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+.app-shell {
+  height: 100vh;
+}
+
+.app-sidenav {
+  width: 260px;
+  background: var(--color-surface);
+  border-right: 1px solid rgba(107, 114, 128, 0.15);
+}
+
+.app-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: var(--shadow-sm);
+}
+
+.app-title {
+  font-family: 'DM Sans', Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.spacer {
+  flex: 1;
+}
+

@@ -1,0 +1,80 @@
+@use '@angular/material' as mat;
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --color-primary: #1a237e;
+  --color-accent: #00acc1;
+  --color-success: #2e7d32;
+  --color-warning: #f57f17;
+  --color-error: #c62828;
+  --color-background: #f5f7fa;
+  --color-surface: #ffffff;
+  --color-text-primary: #1c1c2e;
+  --color-text-secondary: #6b7280;
+
+  --radius-md: 12px;
+  --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.06), 0 1px 3px rgba(16, 24, 40, 0.1);
+  --shadow-md: 0 8px 16px rgba(16, 24, 40, 0.12);
+}
+
+// Angular Material theme (M2 theming APIs used by Angular Material 17)
+$primary: mat.define-palette(mat.$indigo-palette, 900);
+$accent: mat.define-palette(mat.$cyan-palette, 600);
+$warn: mat.define-palette(mat.$red-palette, 700);
+
+$theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $primary,
+      accent: $accent,
+      warn: $warn,
+    ),
+    typography: mat.define-typography-config(
+      $font-family: 'Inter, DM Sans, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif'
+    ),
+    density: 0,
+  )
+);
+
+@include mat.core();
+@include mat.all-component-themes($theme);
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+.page-container {
+  padding: 24px;
+}
+
+.empty-state {
+  display: grid;
+  place-items: center;
+  padding: 36px;
+  text-align: center;
+  color: var(--color-text-secondary);
+}
+
+.loading-overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(245, 247, 250, 0.7);
+  backdrop-filter: blur(2px);
+}

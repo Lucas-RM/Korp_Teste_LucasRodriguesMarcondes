@@ -1,0 +1,23 @@
+:host {
+  display: block;
+  padding: 12px 8px;
+}
+
+a[mat-list-item] {
+  border-radius: 10px;
+  margin: 4px 8px;
+}
+
+a.active {
+  background: rgba(26, 35, 126, 0.08);
+}
+
+mat-icon {
+  margin-right: 12px;
+  color: var(--color-text-secondary);
+}
+
+a.active mat-icon {
+  color: var(--color-primary);
+}
+

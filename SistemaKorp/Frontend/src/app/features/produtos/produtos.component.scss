@@ -1,0 +1,51 @@
+.produtos-grid {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.card-form,
+.card-list {
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.form {
+  display: grid;
+  gap: 12px;
+}
+
+.submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.list-content {
+  position: relative;
+}
+
+.table-wrapper {
+  width: 100%;
+  overflow: auto;
+  border: 1px solid rgba(107, 114, 128, 0.12);
+  border-radius: 12px;
+}
+
+.empty-state mat-icon {
+  color: var(--color-text-secondary);
+  margin-bottom: 8px;
+}
+
+.empty-title {
+  font-weight: 600;
+}
+
+@media (max-width: 960px) {
+  .produtos-grid {
+    grid-template-columns: 1fr;
+  }
+}
+

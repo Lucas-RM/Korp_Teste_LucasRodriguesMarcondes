@@ -6,6 +6,7 @@ public interface IProdutoRepository
 {
     Task<Produto?> ObterPorIdAsync(Guid id);
     Task<Produto?> ObterPorCodigoAsync(string codigo);
+    Task<IEnumerable<Produto>> ObterPorCodigosAsync(IEnumerable<string> codigos);
     Task<IEnumerable<Produto>> ListarTodosAsync();
     Task AdicionarAsync(Produto produto);
     Task AtualizarAsync(Produto produto);

@@ -65,6 +65,18 @@ public class ProdutosController : ControllerBase
         }
     }
 
+    [HttpPost("verificar-existencia")]
+    public async Task<ActionResult<VerificarProdutosResponse>> VerificarExistencia([FromBody] VerificarProdutosRequest request)
+    {
+        var query = new VerificarProdutosQuery
+        {
+            Codigos = request.Codigos
+        };
+
+        var response = await _mediator.Send(query);
+        return Ok(response);
+    }
+
     [HttpPut("{id:guid}")]
     public Task<ActionResult<ProdutoResponse>> Atualizar(Guid id, [FromBody] AtualizarProdutoRequest request)
     {

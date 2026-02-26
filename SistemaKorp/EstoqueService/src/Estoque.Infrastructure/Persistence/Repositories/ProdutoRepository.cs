@@ -25,6 +25,22 @@ public class ProdutoRepository : IProdutoRepository
             .FirstOrDefaultAsync(p => p.Codigo == codigo);
     }
 
+    public async Task<IEnumerable<Produto>> ObterPorCodigosAsync(IEnumerable<string> codigos)
+    {
+        var codigosList = codigos
+            .Where(c => !string.IsNullOrWhiteSpace(c))
+            .Select(c => c.Trim())
+            .Distinct()
+            .ToList();
+
+        if (codigosList.Count == 0)
+            return Enumerable.Empty<Produto>();
+
+        return await _context.Produtos
+            .Where(p => codigosList.Contains(p.Codigo))
+            .ToListAsync();
+    }
+
     public async Task<IEnumerable<Produto>> ListarTodosAsync()
     {
         return await _context.Produtos.ToListAsync();

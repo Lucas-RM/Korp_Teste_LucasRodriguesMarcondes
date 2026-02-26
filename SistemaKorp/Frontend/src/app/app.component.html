@@ -1,0 +1,29 @@
+<app-notification />
+
+<mat-sidenav-container class="app-shell">
+  <mat-sidenav
+    #sidenav
+    class="app-sidenav"
+    [mode]="sidenavMode()"
+    [opened]="sidenavOpened()"
+    [fixedInViewport]="isMobile()"
+  >
+    <app-sidebar />
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="app-toolbar">
+      @if (isMobile()) {
+        <button mat-icon-button (click)="toggleSidenav()" aria-label="Abrir menu">
+          <mat-icon aria-hidden="true">menu</mat-icon>
+        </button>
+      }
+      <span class="app-title">Sistema de NF</span>
+      <span class="spacer"></span>
+    </mat-toolbar>
+
+    <div class="page-container">
+      <router-outlet />
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
