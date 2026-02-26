@@ -1,6 +1,6 @@
 # Sistema de Emissão de Notas Fiscais
 
-Sistema backend desenvolvido em .NET 8 com arquitetura de microsserviços e Clean Architecture.
+Sistema de Emissão de Notas Fiscais é um sistema de gerenciamento de produtos e notas fiscais. Ele é composto por três serviços principais: Estoque, Faturamento e Frontend. O Estoque é responsável por gerenciar o estoque de produtos, incluindo cadastro, baixas e verificação de estoque.
 
 ## Índice
 
