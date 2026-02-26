@@ -77,20 +77,6 @@ public class ProdutosController : ControllerBase
         return Ok(response);
     }
 
-    [HttpPut("{id:guid}")]
-    public Task<ActionResult<ProdutoResponse>> Atualizar(Guid id, [FromBody] AtualizarProdutoRequest request)
-    {
-        // Implementar se necessário
-        return Task.FromResult<ActionResult<ProdutoResponse>>(NotFound());
-    }
-
-    [HttpDelete("{id:guid}")]
-    public Task<IActionResult> Remover(Guid id)
-    {
-        // Implementar se necessário
-        return Task.FromResult<IActionResult>(NotFound());
-    }
-
     [HttpPost("baixa-estoque")]
     public async Task<ActionResult<BaixaEstoqueResponse>> BaixaEstoque([FromBody] BaixaEstoqueRequest request)
     {

@@ -14,12 +14,7 @@ public static class SwaggerExtensions
             {
                 Title = "Faturamento API",
                 Version = "v1",
-                Description = "API do Serviço de Faturamento - Sistema de Emissão de Notas Fiscais",
-                Contact = new OpenApiContact
-                {
-                    Name = "Equipe de Desenvolvimento",
-                    Email = "dev@empresa.com"
-                }
+                Description = "API do Serviço de Faturamento - Sistema de Emissão de Notas Fiscais"
             });
 
             var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";

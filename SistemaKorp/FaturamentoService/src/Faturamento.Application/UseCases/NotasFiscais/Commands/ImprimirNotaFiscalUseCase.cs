@@ -32,12 +32,10 @@ public class ImprimirNotaFiscalUseCase : IRequestHandler<ImprimirNotaFiscalComma
 
     public async Task<ImprimirNotaFiscalResponse> Handle(ImprimirNotaFiscalCommand request, CancellationToken cancellationToken)
     {
-        // Passo 1: Buscar nota fiscal pelo ID com os itens
         var nota = await _notaFiscalRepository.ObterPorIdComItensAsync(request.Id);
         if (nota == null)
             throw new DomainException($"Nota fiscal com ID {request.Id} não encontrada.");
 
-        // Passo 2: Verificar se pode ser impressa
         if (!nota.PodeSerImpressao())
         {
             return new ImprimirNotaFiscalResponse
@@ -48,10 +46,8 @@ public class ImprimirNotaFiscalUseCase : IRequestHandler<ImprimirNotaFiscalComma
             };
         }
 
-        // Passo 3: Registrar log
         _logger.LogInformation($"Iniciando impressão da nota fiscal {nota.Numero}");
 
-        // Passo 4: Montar BaixaEstoqueRequestDto
         var baixaRequest = new BaixaEstoqueRequestDto
         {
             ItensBaixa = nota.Itens.Select(i => new ItemBaixaDto
@@ -63,10 +59,8 @@ public class ImprimirNotaFiscalUseCase : IRequestHandler<ImprimirNotaFiscalComma
 
         try
         {
-            // Passo 6: Chamar IEstoqueService.RealizarBaixaAsync (com Polly Retry)
             var baixaResponse = await _estoqueService.RealizarBaixaAsync(baixaRequest, cancellationToken);
 
-            // Passo 7: Se sucesso
             if (baixaResponse.Sucesso)
             {
                 nota.Fechar();
@@ -84,7 +78,6 @@ public class ImprimirNotaFiscalUseCase : IRequestHandler<ImprimirNotaFiscalComma
             }
             else
             {
-                // Passo 9: Se estoque retornar Sucesso=false
                 _logger.LogWarning($"Baixa de estoque recusada para nota {nota.Numero}: {baixaResponse.Mensagem}");
                 return new ImprimirNotaFiscalResponse
                 {
@@ -96,7 +89,6 @@ public class ImprimirNotaFiscalUseCase : IRequestHandler<ImprimirNotaFiscalComma
         }
         catch (Exception ex)
         {
-            // Passo 8: Se chamada ao estoque lançar exceção
             _logger.LogError(ex, $"Falha ao realizar baixa de estoque para nota {nota.Numero}. Nota mantida com Status=Aberta. Mensagem: {ex.Message}");
 
             return new ImprimirNotaFiscalResponse

@@ -1,8 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
-using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
-using System.IO;
 using System.Reflection;
 
 namespace Estoque.Infrastructure.Persistence.Context;
@@ -27,7 +25,7 @@ public class EstoqueDbContextFactory : IDesignTimeDbContextFactory<EstoqueDbCont
 
         var connectionString = configuration.GetConnectionString("EstoqueConnection")
             ?? Environment.GetEnvironmentVariable("EstoqueConnection")
-            ?? "Server=localhost;Port=3306;Database=estoque_db;Uid=root;Pwd=Lulumysql30*;";
+            ?? "Server=localhost;Port=3306;Database=estoque_db;Uid=root;Pwd=;";
 
         var optionsBuilder = new DbContextOptionsBuilder<EstoqueDbContext>();
         

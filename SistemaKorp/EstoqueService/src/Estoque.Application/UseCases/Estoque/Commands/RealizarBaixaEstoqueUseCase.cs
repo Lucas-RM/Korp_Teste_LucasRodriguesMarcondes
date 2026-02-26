@@ -66,12 +66,12 @@ public class RealizarBaixaEstoqueUseCase : IRequestHandler<RealizarBaixaEstoqueC
         catch (FalhaSimuladaException ex)
         {
             _logger.LogWarning($"Falha simulada detectada durante baixa de estoque: {ex.Message}");
-            throw; // Re-lança para ser tratado pelo middleware
+            throw; 
         }
         catch (DomainException ex)
         {
             _logger.LogError(ex, $"Erro de domínio durante baixa de estoque: {ex.Message}");
-            throw; // Re-lança para ser tratado pelo middleware
+            throw; 
         }
     }
 }
