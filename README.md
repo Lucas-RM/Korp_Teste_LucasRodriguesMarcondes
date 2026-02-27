@@ -69,7 +69,7 @@ Edite os arquivos `appsettings.json` de cada microsserviço conforme necessário
 ```json
 {
   "ConnectionStrings": {
-    "EstoqueConnection": "Server=localhost;Port=3306;Database=estoque_db;User=root;Password=senha_root;"
+    "EstoqueConnection": "Server=localhost;Port=3306;Database=estoque_db;Uid=root;Pwd=senha_root;"
   }
 }
 ```
@@ -78,7 +78,7 @@ Edite os arquivos `appsettings.json` de cada microsserviço conforme necessário
 ```json
 {
   "ConnectionStrings": {
-    "FaturamentoConnection": "Host=localhost;Port=5432;Database=faturamento_db;Username=postgres;Password=senha_pg;"
+    "FaturamentoConnection": "Host=localhost;Port=5433;Database=faturamento_db;Username=postgres;Password=senha_pg;"
   },
   "EstoqueService": {
     "BaseUrl": "http://localhost:5001"
