@@ -32,6 +32,9 @@ Sistema de Emissão de Notas Fiscais é um sistema de gerenciamento de produtos 
 
 O projeto é composto por dois microsserviços:
 
+> 📘 Consulte também o [Detalhamento Técnico do Projeto](./DETALHAMENTO_T%C3%89CNICO_DO_PROJETO.md) para informações mais aprofundadas sobre arquitetura, bibliotecas e práticas adotadas.
+
+
 ### 1. Estoque.API (Porta 5001)
 - **Banco de Dados**: MySQL 8.0
 - **Responsabilidade**: Cadastro e controle de saldo de produtos
