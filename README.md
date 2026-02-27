@@ -78,7 +78,7 @@ Edite os arquivos `appsettings.json` de cada microsserviço conforme necessário
 ```json
 {
   "ConnectionStrings": {
-    "FaturamentoConnection": "Host=localhost;Port=5433;Database=faturamento_db;Username=postgres;Password=senha_pg;"
+    "FaturamentoConnection": "Host=localhost;Port=5432;Database=faturamento_db;Username=postgres;Password=senha_pg;"
   },
   "EstoqueService": {
     "BaseUrl": "http://localhost:5001"
